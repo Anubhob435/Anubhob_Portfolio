@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+
+<body>
+    <div id="chatbot">
+        <div id="chatbot-header">
+            <i class="fas fa-robot"></i>
+            <h2>Friday</h2>
+            <button id="chatbot-minimize-btn"><i class="fas fa-minus"></i></button>
+        </div>
+        <div id="chatbot-messages"></div>
+        <input type="text" id="chatbot-input" placeholder="Type a message...">
+        <button id="chatbot-send-btn">Send</button>
+    </div>
+    <button id="chatbot-reopen-btn" style="display: none;">Chat</button>
+    <!--=======Header========-->
+    <header>
+        <div class="nav-bar">
+            <img src="{{ url_for('static', filename='images/logo-light.png') }}" alt="" class="logo">
+            <div class="navigation">
+                <div class="nav-items">
+                    <div class="nav-close-btn"></div>
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Join me</a>
+                    <img src="{{ url_for('static', filename='images/moon.png') }}" id="icon">
+                </div>
+            </div>
+            <div class="nav-menu-btn"></div>
+        </div>
+    </header>
+
+    <!--=================Home section====================-->
+    <section class="home flex-center" id="home">
+        <div class="home-container">
+            <div class="media-icons">
+                <a href="https://www.facebook.com/anubhob.dey.5/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/anubhob_dey/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/anubhob-dey-05702714b/"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <div class="info">
+                <h2>Hi, Anubhob Here</h2>
+                <h3>I'm tech enthusiast.</h3>
+                <p>As an aspiring software developer and B.Tech undergrad, I thrive on discovering new innovations, diving into coding projects, and staying updated with the latest trends in the tech world.</p>
+                <a href="#contact" class="btn">Join Me <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+            <div class="home-img">
+                <img src="{{ url_for('static', filename='images/profile-pic.jpg') }}" id="image">
+            </div>
+        </div>
+        <a href="#about" class="scroll-down">Scroll Down <i class="fas fa-arrow-down"></i></a>
+    </section>
+
+
+    <!--==========About section============-->
+    <section class="about section" id="about">
+        <div class="container flex center">
+            <h1 class="section-title-01">About Me</h1>
+            <h2 class="section-title-02">About Me</h2>
+            <div class="content flex-center">
+                <div class="about-img">
+                    <img src="{{ url_for('static', filename='images/about-img.jpg') }}" alt="">
+                </div>
+                <div class="about-info">
+                    <div class="description">
+                        <h3>I'm Anubhob</h3>
+                        <h4>Currently a <span>B.Tech student</span> at <span>UEMK</span>. </h4>
+                        <p>I stepped into the world of computer science during high school, starting with Python and SQL. Since then, I have delved into various languages and skills, including C, Web development, Data structures and algorithms and many
+                            more. My curiosity drives me to continuously learn and grow in this ever-evolving field.</p>
+                    </div>
+                    <ul class="professional-list">
+                        <li class="list-tems">
+                            <h3>2+</h3>
+                            <span>Years<br>in the field of Computer Science (Currently a Student)</span>
+                        </li>
+                        <li class="list-tems">
+                            <h3>50+</h3>
+                            <span>Connections on <br> LinkedIn</span>
+                        </li>
+                        <li class="list-tems">
+                            <h3>5+</h3>
+                            <span>Successfull <br> Projects</span>
+                        </li>
+                    </ul>
+                    <a href="{{ url_for('static', filename='images/myResume.pdf') }}" class="btn">Download CV <i class="fas fa-download"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--============Skills section============-->
+    <section class="skills section" id="skills">
+        <div class="container flex-center">
+            <h1 class="section-title-01">Skills</h1>
+            <h2 class="section-title-02">Skills</h2>
+            <div class="content">
+                <div class="skills-description">
+                    <h3>Education & Skills</h3>
+                    <p>Below are my education qualifications and the skills I have explored.</p>
+                </div>
+                <div class="skills-info education-all">
+                    <div class="education">
+                        <h4><label>Education</label></h4>
+                        <ul class="edu-list">
+                            <li class="item">
+                                <span class="year">2022-2026</span>
+                                <p><span> B.Tech in Computer Science(A.I.M.L) </span>-University Of Engineering and Management, Kolkata</p>
+                            </li>
+                            <li class="item">
+                                <span class="year">2021-2022</span>
+                                <p><span> Class 12(Science- PCMC) </span>-B.D.M.International</p>
+                            </li>
+                            <li class="item">
+                                <span class="year">2019-2020</span>
+                                <p><span> Class 10</span>-B.D.M.International</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="education">
+                        <h4><label>Skills</label></h4>
+                        <ul class="bars">
+                            <li class="bars">
+                                <div class="info">
+                                    <span>HTML</span>
+                                    <span>70%</span>
+                                </div>
+                                <div class="line html"></div>
+                            </li>
+                            <li class="bars">
+                                <div class="info">
+                                    <span>CSS</span>
+                                    <span>35%</span>
+                                </div>
+                                <div class="line css"></div>
+                            </li>
+                            <li class="bars">
+                                <div class="info">
+                                    <span>Python</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="line javascript"></div>
+                            </li>
+                            <li class="bars">
+                                <div class="info">
+                                    <span>Python and SQL</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="line python"></div>
+                            </li>
+                            <li class="bars">
+                                <div class="info">
+                                    <span>C programming</span>
+                                    <span>65%</span>
+                                </div>
+                                <div class="line cprog"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--============Projects section============-->
+        <section class="projects section" id="projects">
+            <div class="container flex-center">
+                <h1 class="section-title-01">Projects</h1>
+                <h2 class="section-title-02">Projects</h2>
+                <div class="content">
+                    <div class="projects-list">
+                        <div class="img-card-container">
+                            <div class="img-card">
+                                <div class="overlay"></div>
+                                <div class="info">
+                                    <h3>Project 1</h3>
+                                    <span>Disney+ Hotstar Clone</span>
+                                </div>
+                                <img src="{{ url_for('static', filename='images/disney.png') }}" alt="Disney+ Hotstar Clone">
+                            </div>
+                            <div class="project-model flex-center">
+                                <div class="project-model-body">
+                                    <i class="fas fa-times project-close-btn"></i>
+                                    <h3>Disney+ Hotstar Clone</h3>
+                                    <img src="{{ url_for('static', filename='images/disney.png') }}" alt="Disney+ Hotstar Clone">
+                                    <p>Introducing my Disney+ Hotstar clone, a dynamic web application designed using HTML, CSS, JavaScript, and Node.js . This project showcases my ability to create a seamless and responsive user interface, leveraging modern
+                                        web technologies to deliver an engaging and intuitive streaming experience. Through this clone, I demonstrate my skills in front-end and back-end development.</p>
+                                    <a href="https://nx1kv0.csb.app/" class="btn" target="_blank">Visit Project<i class="fas fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-card-container">
+                            <div class="img-card">
+                                <div class="overlay"></div>
+                                <div class="info">
+                                    <h3>Project 2</h3>
+                                    <span>E-learning Site</span>
+                                </div>
+                                <img src="{{ url_for('static', filename='images/e-learn.png') }}" alt="e-learning site">
+                            </div>
+                            <div class="project-model flex-center">
+                                <div class="project-model-body">
+                                    <i class="fas fa-times project-close-btn"></i>
+                                    <h3>E-learning Site</h3>
+                                    <img src="{{ url_for('static', filename='images/e-learn.png') }}" alt="e-learning site">
+                                    <p>Welcome to my E-learning website, a project crafted using HTML and Tailwind CSS. As my inaugural venture into Tailwind CSS, this project marks a significant step in enhancing my front-end development skills. Designed
+                                        as part of the Immersive web campaign, this website embodies my dedication to creating intuitive and visually appealing user interfaces.</p>
+                                    <a href="https://shruti-sen2004.github.io/Week2-Assignment/" class="btn" target="_blank">Visit Project<i class="fas fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-card-container">
+                            <div class="img-card">
+                                <div class="overlay"></div>
+                                <div class="info">
+                                    <h3>Project 3</h3>
+                                    <span>Calculator</span>
+                                </div>
+                                <img src="{{ url_for('static', filename='images/calculator.png') }}" alt="Calculator">
+                            </div>
+                            <div class="project-model flex-center">
+                                <div class="project-model-body">
+                                    <i class="fas fa-times project-close-btn"></i>
+                                    <h3>Calculator</h3>
+                                    <img src="{{ url_for('static', filename='images/calculator.png') }}" alt="Calculator">
+                                    <p>Introducing my calculator, developed with HTML, CSS, and JavaScript during my web development internship at Oasis Infobytes. This project represents a pivotal task where I honed my skills in front-end development. The
+                                        calculator exemplifies my proficiency in designing responsive and user-centric interfaces.</p>
+                                    <a href="https://github.com/shruti-sen2004/OIBSIP/tree/main/Level%202-%20Task%201" class="btn" target="_blank">Visit Project<i class="fas fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-card-container">
+                            <div class="img-card">
+                                <div class="overlay"></div>
+                                <div class="info">
+                                    <h3>Project 4</h3>
+                                    <span>Eduverity</span>
+                                </div>
+                                <img src="{{ url_for('static', filename='images/eduversity.png') }}" alt="Eduverity">
+                            </div>
+                            <div class="project-model flex-center">
+                                <div class="project-model-body">
+                                    <i class="fas fa-times project-close-btn"></i>
+                                    <h3>Eduverity</h3>
+                                    <img src="{{ url_for('static', filename='images/eduversity.png') }}" alt="Eduverity">
+                                    <p>
+                                        Introducing Eduversity, a pioneering learning platform tailored for students, with a special focus on those with disabilities. Developed collaboratively by a team of six, including myself, we utilized diverse tech stacks to bring this project to life.
+                                        Eduversity was selected as a finalist in the Smart Bengal Hackathon, showcasing our commitment to inclusive education and innovation.</p>
+                                    <a href="https://apu52.github.io/SBH/Eduversity/index.html#home" class="btn" target="_blank">Visit Project<i class="fas fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-card-container">
+                            <div class="img-card">
+                                <div class="overlay"></div>
+                                <div class="info">
+                                    <h3>Project 5</h3>
+                                    <span>Career Crafters</span>
+                                </div>
+                                <img src="{{ url_for('static', filename='images/career-crafters.jpeg') }}" alt="Career-Crafters">
+                            </div>
+                            <div class="project-model flex-center">
+                                <div class="project-model-body">
+                                    <i class="fas fa-times project-close-btn"></i>
+                                    <h3>Career Crafters</h3>
+                                    <img src="{{ url_for('static', filename='images/career-crafters.jpeg') }}" alt="Career-Crafters">
+                                    <p>Introducing Career-Crafters, a dynamic job-seeking platform developed as a collaborative effort by a team of four, including myself, under the Soft Code Hack 2.0 initiative. This innovative website empowers users to
+                                        explore and pursue their desired careers with ease.</p>
+                                    <a href="https://5h0ov.github.io/Career-Crafters/" class="btn" target="_blank">Visit Project<i class="fas fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-card-container">
+                            <div class="img-card">
+                                <div class="overlay"></div>
+                                <div class="info">
+                                    <h3>Project 6</h3>
+                                    <span>Weather App</span>
+                                </div>
+                                <img src="{{ url_for('static', filename='images/weather.png') }}" alt="weather-app">
+                            </div>
+                            <div class="project-model flex-center">
+                                <div class="project-model-body">
+                                    <i class="fas fa-times project-close-btn"></i>
+                                    <h3>Weather App</h3>
+                                    <img src="{{ url_for('static', filename='images/weather.png') }}" alt="weather-app">
+                                    <p>Presenting my Weather App project—a website designed for users to effortlessly check weather conditions in their city. Built using HTML, CSS, and JavaScript, this project represents my first attempt of integrating APIs
+                                        into web development. By seamlessly incorporating weather data, users can stay informed about current and upcoming weather patterns with ease.</p>
+                                    <a href="https://shruti-sen2004.github.io/WeatherApp/" class="btn" target="_blank">Visit Project<i class="fas fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://github.com/shruti-sen2004?tab=repositories" class="btn" target="_blank">More Projects<i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </section>
+
+        <!--==========Join me========-->
+        <section class="contact section" id="contact">
+            <div class="container flex-center">
+                <h1 class="section-title-01">Join Me</h1>
+                <h2 class="section-title-02">Join Me</h2>
+                <div class="content">
+                    <div class="contact-left">
+                        <h2>Let's discuss your project</h2>
+                        <ul class="contact-list">
+                            <li>
+                                <h3 class="item-title"><i class="fas fa-phone"></i>Phone</h3>
+                                <span>+91 8583005957</span>
+                            </li>
+                            <li>
+                                <h3 class="item-title"><i class="fas fa-envelope"></i>Email-Id</h3>
+                                <span><a href="mailto:anubhob435@gmail.com">anubhob435@gmail.com</a></span>
+                            </li>
+                            <li>
+                                <h3 class="item-title"><i class="fas fa-map-marker-alt"></i>Official Address</h3>
+                                <span>Kolkata, India</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="contact-right">
+                        <p>Would love to Chat and talk about<br><span>Projects and Ideas or aything</span></p>
+                        <form action="" class="contact-form">
+                            <div class="first-row">
+                                <input type="text" placeholder="Name">
+                            </div>
+                            <div class="second-row">
+                                <input type="text" placeholder="Email">
+                                <input type="text" placeholder="Subject">
+                            </div>
+                            <div class="third-row">
+                                <textarea name="message" id="" rows="7" placeholder="Message"></textarea>
+                            </div>
+                            <button class="btn" type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </section>
+
+    <!---=========Footer==========-->
+    <footer>
+        <div class="footer-container">
+            <div class="about group">
+                <img src="{{ url_for('static', filename='images/logo-light.png') }}" alt="" class="footer-logo">
+                <p>come, Lets Debug Together</p>
+                <a href="#about">About Me</a>
+            </div>
+            <div class="hr"></div>
+            <div class="info group">
+                <h3>More</h3>
+                <ul>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Join Me</a></li>
+                </ul>
+            </div>
+            <div class="hr"></div>
+            <div class="follow group">
+                <h3>Follow</h3>
+                <ul>
+                    <li><a href="https://www.facebook.com/anubhob.dey.5/"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://www.instagram.com/anubhob_dey/"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/anubhob-dey-05702714b/"><i class="fab fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="footer-copyright group">
+            <p>© 2024 by Anubhob. All rights resrved.</p>
+        </div>
+        <div id="progress">
+            <span id="progress-value">&#x1F815;</span>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+    <!--=======External scripts===========-->
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+    <script src="{{ url_for('static', filename='scroll.js') }}"></script>
+</body>
+</html>
