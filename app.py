@@ -3,14 +3,19 @@ import requests
 import google.generativeai as genai
 from flask import Flask, render_template, send_from_directory, request, jsonify, session
 from flask_session import Session
+from dotenv import load_dotenv
+import time
+from google.api_core import exceptions
+
+load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = os.urandom(24)  # Set the secret key for session management
+app.secret_key = 'your_secret_key'  # Set the secret key for session management
 app.config['SESSION_TYPE'] = 'filesystem'
 Session(app)
 
 # Configure Gemini API
-genai.configure(api_key=os.environ["GEMINI_API_KEY"])
+genai.configure(api_key=os.getenv('GEMINI_API_KEY'))
 
 # Create the model
 generation_config = {
@@ -41,6 +46,11 @@ start by responding to the users query that will follow this message.
 chat = model.start_chat(history=[])
 chat.send_message(INITIAL_CONTEXT)
 
+# Add rate limiting variables
+RATE_LIMIT_WINDOW = 60  # 1 minute
+MAX_REQUESTS = 60  # maximum requests per minute
+request_timestamps = []
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -52,25 +62,43 @@ def static_files(filename):
 @app.route('/chatbot', methods=['POST'])
 def chatbot():
     try:
+        # Rate limiting check
+        current_time = time.time()
+        request_timestamps.append(current_time)
+        
+        # Remove timestamps older than the window
+        while request_timestamps and request_timestamps[0] < current_time - RATE_LIMIT_WINDOW:
+            request_timestamps.pop(0)
+            
+        # Check if rate limit exceeded
+        if len(request_timestamps) > MAX_REQUESTS:
+            return jsonify({
+                'response': "I'm receiving too many requests right now. Please try again in a minute."
+            }), 429
+
         user_message = INITIAL_CONTEXT
         user_message = user_message + request.json.get('message')
         
-        
-        # Get response from Gemini
-        response = chat.send_message(user_message)
-        bot_response = response.text.strip()
-        
-        # Print chat history to terminal
-        print("\n=== Chat History ===")
-        for message in chat.history:
-            role = "User" if message.role == "user" else "Assistant"
-            print(f"{role}: {message.parts[0].text}")
-        print("=================\n")
+        try:
+            response = chat.send_message(user_message)
+            bot_response = response.text.strip()
+        except exceptions.ResourceExhausted:
+            return jsonify({
+                'response': "I've reached my quota limit. Please try again later."
+            }), 429
+        except Exception as e:
+            print(f"Gemini API Error: {str(e)}")
+            return jsonify({
+                'response': "I encountered an error processing your request. Please try again."
+            }), 500
         
         return jsonify({'response': bot_response})
+        
     except Exception as e:
-        print(f"Error: {str(e)}")
-        return jsonify({'response': "I apologize, but I encountered an error. Please try again."})
+        print(f"Server Error: {str(e)}")
+        return jsonify({
+            'response': "I apologize, but I encountered an error. Please try again."
+        }), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
