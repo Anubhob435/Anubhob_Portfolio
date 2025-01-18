@@ -114,6 +114,23 @@ h1 {
     background: #1a3442;
 }
 
+/* Dark theme image adjustments */
+.dark-theme img {
+    filter: brightness(0.9); /* Slightly reduce brightness in dark mode */
+}
+
+.dark-theme .logo,
+.dark-theme #icon,
+.dark-theme .footer-logo {
+    filter: invert(1); /* Invert colors for specific images */
+}
+
+.dark-theme .home-img img,
+.dark-theme .about-img img,
+.dark-theme .img-card img {
+    filter: brightness(0.9); /* Adjust project images in dark mode */
+}
+
 /*=======Scroll Bar========*/
 
 ::-webkit-scrollbar {
@@ -171,8 +188,9 @@ header.sticky .nav-bar {
 }
 
 .nav-bar img {
-    width: 150px;
+    width: 60px;  /* Changed from 80px */
     cursor: pointer;
+    padding-top: 8px; /* Added padding */
 }
 
 .nav-items a {
@@ -791,8 +809,9 @@ footer a {
 }
 
 .footer-container .about img {
-    width: 250px;
+    width: 100px;  /* Changed from 120px */
     opacity: .8;
+    padding-top: 8px; /* Added padding */
 }
 
 .footer-container .about p {

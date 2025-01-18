@@ -8,17 +8,18 @@ window.addEventListener("scroll", function() {
 var icon = document.getElementById("icon");
 var logo = document.getElementsByClassName("logo")[0];
 var image = document.getElementById("image");
+
 icon.onclick = function() {
     document.body.classList.toggle("dark-theme");
 
     if (document.body.classList.contains("dark-theme")) {
-        icon.src = "images/moon.png";
-        logo.src = "images/logo-light.png";
-        image.src = "images/profile-pic.jpg"; // Corrected dark mode profile picture
+        icon.src = "/static/images/sun.png"; // Change to sun icon in dark mode
+        logo.src = "/static/images/logo-light.png"; // Use dark mode logo
+        // Don't change the profile picture source
     } else {
-        icon.src = "images/moon.png";
-        logo.src = "images/logo-light.png";
-        image.src = "images/profile-pic.jpg"; // Corrected light mode profile picture
+        icon.src = "/static/images/moon.png"; // Change to moon icon in light mode
+        logo.src = "/static/images/logo-light.png"; // Use light mode logo
+        // Don't change the profile picture source
     }
 }
 
@@ -121,6 +122,10 @@ navItems.forEach((navItem) => {
 
 //CHATBOT FUNCTIONALITY
 document.addEventListener("DOMContentLoaded", function() {
+    // Set initial theme state
+    icon.src = "/static/images/sun.png"; // Start with sun icon
+    logo.src = "/static/images/logo-light.png"; // Use dark mode logo
+
     const chatbotMessages = document.getElementById("chatbot-messages");
     const chatbotInput = document.getElementById("chatbot-input");
     const chatbotSendBtn = document.getElementById("chatbot-send-btn");
