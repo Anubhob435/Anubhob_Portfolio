@@ -138,6 +138,7 @@ document.addEventListener("DOMContentLoaded", function() {
         messageElement.className = `chatbot-message ${className}`;
         messageElement.textContent = message;
         chatbotMessages.appendChild(messageElement);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight; // Scroll to the bottom
     }
 
     // Function to handle sending a message
@@ -184,9 +185,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Add window resize handler
     function handleResize() {
-        if (window.innerWidth <= 768) { // Adjust breakpoint as needed
-            document.getElementById("chatbot").style.display = "none";
-            document.getElementById("chatbot-reopen-btn").style.display = "block";
+        const chatbot = document.getElementById("chatbot");
+        const reopenBtn = document.getElementById("chatbot-reopen-btn");
+        
+        if (window.innerWidth <= 768) {
+            if (chatbot.style.display !== "flex") {
+                chatbot.style.display = "none";
+                reopenBtn.style.display = "block";
+            }
         }
     }
 
@@ -198,4 +204,63 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Greet the user on page load
     displayMessage("Hola, I am master Dey's Assistant, How can I help", "bot-message");
+
+    // Ensure chatbot is visible on mobile when reopened
+    const chatbot = document.getElementById("chatbot");
+    const reopenBtn = document.getElementById("chatbot-reopen-btn");
+    
+    // Add touchstart event for mobile devices
+    reopenBtn.addEventListener("touchstart", function(e) {
+        e.preventDefault(); // Prevent default touch behavior
+        chatbot.style.display = "flex";
+        this.style.display = "none";
+    }, false);
+
+    // Keep click event for desktop
+    reopenBtn.addEventListener("click", function(e) {
+        e.preventDefault(); // Prevent default click behavior
+        chatbot.style.display = "flex";
+        this.style.display = "none";
+    });
+
+    // Initialize chatbot state for mobile
+    if (window.innerWidth <= 768) {
+        chatbot.style.display = "none";
+        reopenBtn.style.display = "block";
+    }
+
+    // Dropdown and View More functionality
+    // Handle dropdowns
+    const dropdownBtns = document.querySelectorAll('.dropdown-btn');
+    
+    dropdownBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const targetId = this.getAttribute('data-target');
+            const content = document.getElementById(targetId);
+            
+            // Toggle active class
+            this.classList.toggle('active');
+            content.classList.toggle('active');
+        });
+    });
+
+    // Handle View More buttons
+    const viewMoreBtns = document.querySelectorAll('.view-more-btn');
+    
+    viewMoreBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const hiddenContent = this.previousElementSibling;
+            hiddenContent.classList.toggle('active');
+            
+            // Toggle button text
+            this.textContent = hiddenContent.classList.contains('active') ? 
+                'View Less' : 'View More';
+        });
+    });
+});
+
+// Ensure chatbot is visible on mobile when reopened
+document.getElementById("chatbot-reopen-btn").addEventListener("click", function() {
+    document.getElementById("chatbot").style.display = "flex";
+    this.style.display = "none";
 });

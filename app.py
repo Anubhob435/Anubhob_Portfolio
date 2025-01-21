@@ -23,7 +23,6 @@ generation_config = {
     "top_p": 0.95,
     "top_k": 40,
     "max_output_tokens": 8192,
-    "response_mime_type": "text/plain",
 }
 
 model = genai.GenerativeModel(
@@ -101,4 +100,4 @@ def chatbot():
         }), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5000)

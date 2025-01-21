@@ -114,62 +114,124 @@
                     <p>Below are my education qualifications and the skills I have explored.</p>
                 </div>
                 <div class="skills-info education-all">
-                    <div class="education">
-                        <h4><label>Education</label></h4>
-                        <ul class="edu-list">
-                            <li class="item">
-                                <span class="year">2022-2026</span>
-                                <p><span> B.Tech in Computer Science(A.I.M.L) </span>-University Of Engineering and Management, Kolkata</p>
-                            </li>
-                            <li class="item">
-                                <span class="year">2021-2022</span>
-                                <p><span> Class 12(Science- PCMC) </span>-B.D.M.International</p>
-                            </li>
-                            <li class="item">
-                                <span class="year">2019-2020</span>
-                                <p><span> Class 10</span>-B.D.M.International</p>
-                            </li>
-                        </ul>
+                    <!-- Education Section -->
+                    <div class="info-section">
+                        <button class="dropdown-btn" data-target="education-content">
+                            Education <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-content" id="education-content">
+                            <!-- Initial visible items -->
+                            <ul class="edu-list preview">
+                                <li class="item">
+                                    <span class="year">2022-2026</span>
+                                    <p><span>B.Tech in Computer Science(A.I.M.L)</span> - UEM Kolkata</p>
+                                </li>
+                                <li class="item">
+                                    <span class="year">2021-2022</span>
+                                    <p><span>Class 12(Science- PCMC)</span> - B.D.M.International</p>
+                                </li>
+                            </ul>
+                            <!-- Hidden items -->
+                            <div class="hidden-content">
+                                <ul class="edu-list">
+                                    <li class="item">
+                                        <span class="year">2019-2020</span>
+                                        <p><span>Class 10</span> - B.D.M.International</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <button class="view-more-btn">View More</button>
+                        </div>
                     </div>
-                    <div class="education">
-                        <h4><label>Skills</label></h4>
-                        <ul class="bars">
-                            <li class="bars">
-                                <div class="info">
-                                    <span>HTML</span>
-                                    <span>70%</span>
+
+                    <!-- Certifications Section -->
+                    <div class="info-section">
+                        <button class="dropdown-btn" data-target="certifications-content">
+                            Certifications <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-content" id="certifications-content">
+                            <!-- Initial visible items -->
+                            <ul class="edu-list preview">
+                                <li class="item">
+                                    <span class="year">September 2023 - June 2024</span>
+                                    <p><span>CS50x: Harvard University's Introduction to Computer Science</span></p>
+                                </li>
+                                <li class="item">
+                                    <span class="year">July 2024 – October 2024</span>
+                                    <p><span>CS50p: Harvard University's Python Programming</span></p>
+                                </li>
+                            </ul>
+                            <!-- Hidden items -->
+                            <div class="hidden-content">
+                                <ul class="edu-list">
+                                    <li class="item">
+                                        <span class="year">March 2024 – April 2024</span>
+                                        <p><span>AWS Certified Machine Learning:</span> Problem Framing & Algorithm Selection</p>
+                                    </li>
+                                    <li class="item">
+                                        <span class="year">February 2024 – November 2024</span>
+                                        <p><span>Udemy: The Complete 2024 Web Development Bootcamp</span></p>
+                                    </li>
+                                    <li class="item">
+                                        <span class="year">September 2023</span>
+                                        <p><span>LinkedIn Learning:</span> Programming Foundations: Algorithms</p>
+                                    </li>
+                                    <li class="item">
+                                        <span class="year">April 2024</span>
+                                        <p><span>LinkedIn Learning:</span> Java Object Oriented Programming</span></p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <button class="view-more-btn">View More</button>
+                        </div>
+                    </div>
+
+                    <!-- Skills Section -->
+                    <div class="info-section">
+                        <button class="dropdown-btn" data-target="skills-content">
+                            Skills <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-content" id="skills-content">
+                            <div class="skills-grid">
+                                <!-- Technical Skills -->
+                                <div class="skill-category">
+                                    <h5>Technical</h5>
+                                    <ul class="skill-tags">
+                                        <li>Python</li>
+                                        <li>HTML/CSS</li>
+                                        <li>SQL</li>
+                                        <li>JavaScript</li>
+                                        <li>C/C++</li>
+                                    </ul>
                                 </div>
-                                <div class="line html"></div>
-                            </li>
-                            <li class="bars">
-                                <div class="info">
-                                    <span>CSS</span>
-                                    <span>35%</span>
+                                
+                                <!-- Professional Skills -->
+                                <div class="skill-category">
+                                    <h5>Professional</h5>
+                                    <ul class="skill-tags">
+                                        <li>Problem Solving</li>
+                                        <li>Data Analysis</li>
+                                        <li>Project Management</li>
+                                        <li>Team Leadership</li>
+                                        <li>Research</li>
+                                        <li>Documentation</li>
+                                    </ul>
                                 </div>
-                                <div class="line css"></div>
-                            </li>
-                            <li class="bars">
-                                <div class="info">
-                                    <span>Python</span>
-                                    <span>80%</span>
+                                
+                                <!-- Data Science Skills -->
+                                <div class="skill-category">
+                                    <h5>Data Science</h5>
+                                    <ul class="skill-tags">
+                                        <li>Data Collection</li>
+                                        <li>Data Cleaning</li>
+                                        <li>Data Pipeline</li>
+                                        <li>Machine Learning</li>
+                                        <li>Statistical Analysis</li>
+                                        <li>Data Visualization</li>
+                                    </ul>
                                 </div>
-                                <div class="line javascript"></div>
-                            </li>
-                            <li class="bars">
-                                <div class="info">
-                                    <span>Python and SQL</span>
-                                    <span>90%</span>
-                                </div>
-                                <div class="line python"></div>
-                            </li>
-                            <li class="bars">
-                                <div class="info">
-                                    <span>C programming</span>
-                                    <span>65%</span>
-                                </div>
-                                <div class="line cprog"></div>
-                            </li>
-                        </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -195,9 +257,8 @@
                                 <div class="project-model-body">
                                     <i class="fas fa-times project-close-btn"></i>
                                     <h3>TrackBees</h3>
-                                    <img src="{{ url_for('static', filename='images/uemxmap.png') }}" alt="Disney+ Hotstar Clone">
-                                    <p>Introducing my Disney+ Hotstar clone, a dynamic web application designed using HTML, CSS, JavaScript, and Node.js . This project showcases my ability to create a seamless and responsive user interface, leveraging modern
-                                        web technologies to deliver an engaging and intuitive streaming experience. Through this clone, I demonstrate my skills in front-end and back-end development.</p>
+                                    <img src="{{ url_for('static', filename='images/uemxmap.png') }}" alt="TrackBees">
+                                    <p>Introducing TrackBees, a comprehensive vehicle tracking solution developed for my university's transport system. This web application utilizes GPS technology and real-time mapping to provide live tracking of university buses, helping students and staff monitor bus locations and estimated arrival times efficiently.</p>
                                     <a href="https://nx1kv0.csb.app/" class="btn" target="_blank">Visit Project<i class="fas fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
@@ -214,11 +275,10 @@
                             <div class="project-model flex-center">
                                 <div class="project-model-body">
                                     <i class="fas fa-times project-close-btn"></i>
-                                    <h3>Ai Stock Analysis</h3>
-                                    <img src="{{ url_for('static', filename='images/ss1.png') }}" alt="e-learning site">
-                                    <p>Welcome to my E-learning website, a project crafted using HTML and Tailwind CSS. As my inaugural venture into Tailwind CSS, this project marks a significant step in enhancing my front-end development skills. Designed
-                                        as part of the Immersive web campaign, this website embodies my dedication to creating intuitive and visually appealing user interfaces.</p>
-                                    <a href="https://shruti-sen2004.github.io/Week2-Assignment/" class="btn" target="_blank">Visit Project<i class="fas fa-arrow-circle-right"></i></a>
+                                    <h3>AI Stock Analysis</h3>
+                                    <img src="{{ url_for('static', filename='images/ss1.png') }}" alt="AI Stock Analysis">
+                                    <p>A sophisticated stock analysis tool powered by artificial intelligence. This project combines machine learning algorithms with financial data to provide predictive analytics, trend analysis, and automated trading signals. Features include real-time market data processing, pattern recognition, and predictive modeling for informed investment decisions.</p>
+                                    <a href="#" class="btn" target="_blank">Visit Project<i class="fas fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -255,11 +315,9 @@
                                 <div class="project-model-body">
                                     <i class="fas fa-times project-close-btn"></i>
                                     <h3>Portfolio with AI Assistant</h3>
-                                    <img src="{{ url_for('static', filename='images/portfolio.png') }}" alt="Eduverity">
-                                    <p>
-                                        Introducing Eduversity, a pioneering learning platform tailored for students, with a special focus on those with disabilities. Developed collaboratively by a team of six, including myself, we utilized diverse tech stacks to bring this project to life.
-                                        Eduversity was selected as a finalist in the Smart Bengal Hackathon, showcasing our commitment to inclusive education and innovation.</p>
-                                    <a href="https://apu52.github.io/SBH/Eduversity/index.html#home" class="btn" target="_blank">Visit Project<i class="fas fa-arrow-circle-right"></i></a>
+                                    <img src="{{ url_for('static', filename='images/portfolio.png') }}" alt="Portfolio">
+                                    <p>A modern portfolio website featuring an integrated AI assistant powered by Google's Gemini API. This project showcases my work while providing interactive assistance to visitors. The AI can answer questions about my projects, skills, and experience, creating an engaging user experience.</p>
+                                    <a href="#" class="btn" target="_blank">Visit Project<i class="fas fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -268,18 +326,17 @@
                                 <div class="overlay"></div>
                                 <div class="info">
                                     <h3>Project 5</h3>
-                                    <span>Career Crafters</span>
+                                    <span>Web Scrapper with Ai Analysis</span>
                                 </div>
-                                <img src="{{ url_for('static', filename='images/career-crafters.jpeg') }}" alt="Career-Crafters">
+                                <img src="{{ url_for('static', filename='images/ss5.png') }}" alt="Career-Crafters">
                             </div>
                             <div class="project-model flex-center">
                                 <div class="project-model-body">
                                     <i class="fas fa-times project-close-btn"></i>
-                                    <h3>Career Crafters</h3>
-                                    <img src="{{ url_for('static', filename='images/career-crafters.jpeg') }}" alt="Career-Crafters">
-                                    <p>Introducing Career-Crafters, a dynamic job-seeking platform developed as a collaborative effort by a team of four, including myself, under the Soft Code Hack 2.0 initiative. This innovative website empowers users to
-                                        explore and pursue their desired careers with ease.</p>
-                                    <a href="https://5h0ov.github.io/Career-Crafters/" class="btn" target="_blank">Visit Project<i class="fas fa-arrow-circle-right"></i></a>
+                                    <h3>Web Scrapper with AI Analysis</h3>
+                                    <img src="{{ url_for('static', filename='images/ss5.png') }}" alt="Web Scrapper">
+                                    <p>An advanced web scraping tool enhanced with AI capabilities for intelligent data analysis. This project automatically collects data from various web sources and uses machine learning to analyze and categorize the information. Features include automated data extraction, sentiment analysis, and trend identification.</p>
+                                    <a href="#" class="btn" target="_blank">Visit Project<i class="fas fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -388,7 +445,7 @@
             <p>© 2024 by Anubhob. All rights resrved.</p>
         </div>
         <div id="progress">
-            <span id="progress-value">&#x1F815;</span>
+            <span id="progress-value"><i class="fas fa-arrow-up"></i></span>
         </div>
     </footer>
 

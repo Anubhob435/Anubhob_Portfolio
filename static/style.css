@@ -242,7 +242,7 @@ header.sticky .nav-bar {
 }
 
 .home-container .media-icons a {
-    color: var(--second-color);
+    color: var (--second-color);
     font-size: 1.5em;
     margin: 10px 0;
 }
@@ -482,7 +482,7 @@ header.sticky .nav-bar {
 }
 
 .education-all {
-    margin-bottom: 80px;
+    margin-bottom: 0; /* Remove gap below education */
 }
 
 .edu-list .item {
@@ -498,17 +498,18 @@ header.sticky .nav-bar {
 .edu-list .item .year {
     font-size: var(--small-font-size);
     margin-bottom: 5px;
+    color: var(--second-color);
+    font-weight: 600;
 }
 
 .edu-list .item p {
-    color: var (--third-color);
-    font-size: var(--small-font-size);
+    color: var(--first-color);
+    font-size: var(--normal-font-size);
 }
 
 .edu-list .item p span {
-    color: var(--first-color);
-    font-size: var(--normal-font-size);
-    font-weight: 500;
+    color: var(--second-color);
+    font-weight: 600;
 }
 
 .bars {
@@ -578,20 +579,26 @@ header.sticky .nav-bar {
 
 .projects-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     max-width: 100%;
-    gap: 35px;
+    gap: 25px;
     margin: 0 auto;
+    padding: 20px 0;
 }
 
 .projects-list .img-card {
     position: relative;
     max-width: 100%;
-    height: 400px;
+    height: 250px; /* Changed from 400px to make it more rectangular */
     border-radius: 10px;
     overflow: hidden;
     box-shadow: var(--box-shadow);
     cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.projects-list .img-card:hover {
+    transform: translateY(-5px);
 }
 
 .projects-list .img-card .overlay {
@@ -637,6 +644,7 @@ header.sticky .nav-bar {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: top; /* Align image to top of container */
     transition: .5s ease;
 }
 
@@ -691,6 +699,18 @@ header.sticky .nav-bar {
     width: 100%;
     border-radius: 10px;
     margin: 20px 0;
+}
+
+/* Adjust for mobile screens */
+@media screen and (max-width: 480px) {
+    .projects-list {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        gap: 20px;
+    }
+    
+    .projects-list .img-card {
+        height: 200px; /* Slightly shorter on mobile */
+    }
 }
 
 /*===========Contact section===========*/
@@ -857,40 +877,31 @@ footer a {
 #progress {
     position: fixed;
     bottom: 20px;
-    left: 5vh; /* Moved to the left */
+    left: 20px; /* Changed from right to left */
     height: 50px;
     width: 50px;
     display: none;
     place-items: center;
     border-radius: 50%;
-    transition: opacity 0.3s, background-color 0.3s;
-    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .3), -4px -4px 6px 0 rgba(116, 125, 136, .2), inset -4px -4px 6px 0 rgba(255, 255, 255, .2), inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+    background: var(--second-color); /* Added solid background */
+    transition: all 0.3s ease;
     cursor: pointer;
+    z-index: 999; /* Added z-index to stay above content */
 }
 
 #progress:hover {
-    opacity: 1;
-    background-color: #df87ef;
-    animation: animate 1s linear infinite;
-}
-
-@keyframes animate {
-    50% {
-        transform: translateY(-8px);
-    }
+    opacity: 0.8;
+    transform: translateY(-5px);
 }
 
 #progress-value {
-    display: block;
-    height: calc(100% - 15px);
-    width: calc(100% - 15px);
-    background-color: rgb(104, 98, 232);
-    background: linear-gradient(90deg, rgb(159, 157, 235) 0%, rgb(212, 153, 222) 39%, rgb(253, 199, 134) 100%);
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    font-size: 26px;
-    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    color: white; /* Changed color to white */
+    font-size: 20px; /* Adjusted size */
 }
 
 /* Chatbot Styles */
@@ -1047,9 +1058,41 @@ footer a {
         width: 90%;
         right: 5%;
         bottom: 20px;
+        max-height: 70vh; /* Limit height on mobile */
+        display: none; /* Start hidden on mobile */
+    }
+    
+    #chatbot-reopen-btn {
+        display: block; /* Show button by default on mobile */
+        right: 5%;
+        bottom: 20px;
+        padding: 15px 25px;
+        font-size: 1em;
+        z-index: 999999;
+        border-radius: 25px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    #chatbot-messages {
+        max-height: 50vh; /* Adjust message container height */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #chatbot {
+        width: 90%;
+        right: 5%;
+        bottom: 20px;
     }
     #chatbot-reopen-btn {
         right: 5%;
+        bottom: 20px;
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    #progress {
+        width: 50px; /* Ensure consistency */
+        height: 50px; /* Ensure consistency */
     }
 }
 
@@ -1238,20 +1281,291 @@ footer a {
     }
 }
 
+/* New styles for the updated skills section */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.skill-category {
+    background: var(--card-bg-color);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+}
+
+.skill-category h5 {
+    color: var(--second-color);
+    font-size: 1.2em;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--transparent-colour-02);
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.skill-tags li {
+    background: var(--transparent-colour-02);
+    color: var(--first-color);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+}
+
+.skill-tags li:hover {
+    background: var(--second-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.dark-theme .skill-category {
+    background: var(--transparent-colour-02);
+}
+
+.dark-theme .skill-tags li {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--body-bg-color);
+}
+
+.dark-theme .skill-tags li:hover {
+    background: var(--second-color);
+}
+
+/* Update existing progress bars */
+.bars .sql:before {
+    width: 85%;
+}
+
+/* Responsive adjustments */
 @media screen and (max-width: 768px) {
-    #chatbot {
-        width: 90%;
-        right: 5%;
-        bottom: 20px;
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
-    #chatbot-reopen-btn {
-        right: 5%;
-        bottom: 20px;
-        padding: 10px 20px;
-        font-size: 0.9em;
+    
+    .skill-category {
+        padding: 1rem;
     }
-    #progress {
-        width: 50px; /* Ensure consistency */
-        height: 50px; /* Ensure consistency */
+    
+    .skill-tags {
+        gap: 0.5rem;
+    }
+    
+    .skill-tags li {
+        font-size: 0.8em;
+        padding: 0.4rem 0.8rem;
     }
 }
+
+/* ...existing code... */
+
+.edu-list {
+    margin-bottom: 2rem;
+}
+
+.edu-list:last-child {
+    margin-bottom: 0;
+}
+
+.education h4:not(:first-child) {
+    margin-top: 2.5rem;
+}
+
+.edu-list .item {
+    background: var(--card-bg-color);
+    box-shadow: var(--box-shadow);
+    border-bottom: 3px solid var(--second-color);
+    padding: 20px;
+    margin-top: 15px;
+    border-radius: 6px;
+    transition: .3s ease;
+}
+
+.edu-list .item:hover {
+    transform: translateX(10px);
+}
+
+/* Dark theme adjustments */
+.dark-theme .edu-list .item {
+    background: var(--transparent-colour-02);
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+    .edu-list .item {
+        padding: 15px;
+    }
+    
+    .edu-list .item:hover {
+        transform: none;
+    }
+}
+
+/* ...existing code... */
+
+/* Certification Dropdown Styles */
+.certification-dropdown {
+    margin-top: 2rem;
+}
+
+.dropdown-btn {
+    width: 100%;
+    padding: 15px 20px;
+    background: var(--second-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--normal-font-size);
+    transition: 0.3s ease;
+}
+
+.dropdown-btn:hover {
+    background: var(--hover-color);
+}
+
+.dropdown-btn i {
+    transition: 0.3s ease;
+}
+
+.dropdown-content {
+    display: none;
+    padding-top: 15px;
+}
+
+.dropdown-content.active {
+    display: block;
+}
+
+.dropdown-btn.active i {
+    transform: rotate(180deg);
+}
+
+/* Dark theme adjustments */
+.dark-theme .edu-list .item {
+    background: var(--transparent-colour-02);
+}
+
+.dark-theme .edu-list .item p {
+    color: var(--body-bg-color);
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 768px) {
+    .dropdown-btn {
+        padding: 12px 15px;
+        font-size: 0.9em;
+    }
+}
+
+/* ...existing code... */
+
+.info-section {
+    margin-bottom: 0; /* Remove gap between info sections */
+}
+
+.dropdown-btn {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background: var(--second-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1em;
+    transition: 0.3s ease;
+}
+
+.dropdown-btn:hover {
+    background: var(--hover-color);
+}
+
+.dropdown-btn i {
+    transition: 0.3s ease;
+}
+
+.dropdown-content {
+    display: none;
+    padding: 1rem 0;
+}
+
+.dropdown-content.active {
+    display: block;
+}
+
+.dropdown-btn.active i {
+    transform: rotate(180deg);
+}
+
+.preview {
+    margin-bottom: 1rem;
+}
+
+.hidden-content {
+    display: none;
+}
+
+.hidden-content.active {
+    display: block;
+}
+
+.view-more-btn {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 1rem;
+    background: var(--transparent-colour-02);
+    color: var(--second-color);
+    border: 1px solid var(--second-color);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.view-more-btn:hover {
+    background: var(--second-color);
+    color: white;
+}
+
+/* Update skill tags style */
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.skill-tags li {
+    background: var(--transparent-colour-02);
+    color: var(--first-color);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+}
+
+/* ...existing code... */
+
+.skills {
+    margin-top: 0; /* Remove gap above skills section */
+}
+
+/* ...existing code... */
