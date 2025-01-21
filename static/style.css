@@ -1789,3 +1789,35 @@ footer a {
 }
 
 /* ...existing code... */
+
+/* ...existing code... */
+
+/* Update dropdown content text colors */
+.dropdown-content {
+    /* ...existing code... */
+    color: #fff !important;
+}
+
+.dropdown-content * {
+    color: #fff !important;
+}
+
+.edu-list .item p,
+.edu-list .item .year,
+.edu-list .item p span,
+.skill-category h5,
+.skill-tags li {
+    color: #fff !important;
+}
+
+/* Ensure white text in dark theme */
+.dark-theme .dropdown-content,
+.dark-theme .edu-list .item p,
+.dark-theme .edu-list .item .year,
+.dark-theme .edu-list .item p span,
+.dark-theme .skill-category h5,
+.dark-theme .skill-tags li {
+    color: #fff !important;
+}
+
+/* ...existing code... */
