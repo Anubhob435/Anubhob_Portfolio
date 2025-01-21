@@ -27,6 +27,25 @@
     --scroll-thum-hover-color: #454f6b;
 }
 
+/* Add these style rules after the :root section */
+
+.dropdown-list {
+    margin-bottom: 0; /* Remove bottom margin */
+    padding-bottom: 0; /* Remove bottom padding */
+}
+
+.dropdown-container:not(:last-child) {
+    margin-bottom: 10px; /* Add small space between containers */
+}
+
+/* If there's specific padding/margin on individual elements, you may need: */
+.education-dropdown,
+.certification-dropdown,
+.skills-dropdown {
+    margin: 0;
+    padding: 5px 0;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -1434,6 +1453,7 @@ footer a {
     align-items: center;
     font-size: var(--normal-font-size);
     transition: 0.3s ease;
+    margin: 0;
 }
 
 .dropdown-btn:hover {
@@ -1493,6 +1513,7 @@ footer a {
     align-items: center;
     font-size: 1.1em;
     transition: 0.3s ease;
+    margin: 0;
 }
 
 .dropdown-btn:hover {
@@ -1566,6 +1587,205 @@ footer a {
 
 .skills {
     margin-top: 0; /* Remove gap above skills section */
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+.info-section + .info-section {
+    margin-top: 0;
+}
+
+.dropdown-btn {
+    margin: 0;
+    border-radius: 0;
+}
+
+.info-section:first-child .dropdown-btn {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.info-section:last-child .dropdown-btn {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.dropdown-content {
+    padding: 1rem 0 0 0;
+    margin: 0;
+}
+
+/* ...existing code... */
+
+/* Remove spaces between dropdown buttons */
+.info-section {
+    margin: 0;
+    padding: 0;
+}
+
+.info-section:not(:first-child) .dropdown-btn {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-btn {
+    margin: 0;
+    padding: 15px 20px;
+    border-radius: 0;
+}
+
+.info-section:first-child .dropdown-btn {
+    border-radius: 8px 8px 0 0;
+}
+
+.info-section:last-child .dropdown-btn {
+    border-radius: 0 0 8px 8px;
+}
+
+.dropdown-content {
+    padding: 15px;
+    margin: 0;
+    border-bottom: none;
+}
+
+/* Remove any inherited margins */
+.skills-info {
+    margin: 0;
+    padding: 0;
+}
+
+.education-all {
+    margin: 0;
+    padding: 0;
+}
+
+/* ...existing code... */
+
+/* Reset spacing for skills section */
+.skills-info {
+    margin: 0;
+    padding: 0;
+}
+
+/* New dropdown section styles */
+.info-sections-container {
+    background: var(--card-bg-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+.info-section {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-section:last-child {
+    border-bottom: none;
+}
+
+.dropdown-btn {
+    width: 100%;
+    padding: 1.2rem;
+    background: var(--second-color);
+    color: white;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1em;
+    transition: 0.3s ease;
+}
+
+.dropdown-btn:hover {
+    background: var(--hover-color);
+}
+
+.dropdown-content {
+    display: none;
+    background: var(--body-bg-color);
+    padding: 1.2rem;
+}
+
+.dropdown-content.active {
+    display: block;
+}
+
+/* Dark theme adjustments */
+.dark-theme .info-sections-container {
+    background: var(--transparent-colour-02);
+}
+
+.dark-theme .dropdown-content {
+    background: var(--transparent-colour-02);
+}
+
+/* ...existing code... */
+
+/* Flex container for side-by-side layout */
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+/* Ensure each section takes equal space */
+.info-section {
+    flex: 1;
+    background: var(--card-bg-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    margin-bottom: 0;
+}
+
+/* Adjust dropdown button styles */
+.dropdown-btn {
+    width: 100%;
+    padding: 1.2rem;
+    background: var(--second-color);
+    color: white;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1em;
+    transition: 0.3s ease;
+}
+
+.dropdown-btn:hover {
+    background: var(--hover-color);
+}
+
+/* Adjust dropdown content styles */
+.dropdown-content {
+    display: none;
+    background: var(--body-bg-color);
+    padding: 1.2rem;
+}
+
+.dropdown-content.active {
+    display: block;
+}
+
+/* Dark theme adjustments */
+.dark-theme .info-section {
+    background: var(--transparent-colour-02);
+}
+
+.dark-theme .dropdown-content {
+    background: var(--transparent-colour-02);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .flex-container {
+        flex-direction: column;
+    }
 }
 
 /* ...existing code... */
