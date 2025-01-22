@@ -261,7 +261,7 @@ header.sticky .nav-bar {
 }
 
 .home-container .media-icons a {
-    color: var (--second-color);
+    color: #fff;  /* Change icon color to white */
     font-size: 1.5em;
     margin: 10px 0;
 }
@@ -649,6 +649,9 @@ header.sticky .nav-bar {
 .projects-list .img-card:hover .info {
     transform: translateY(0);
     opacity: 1;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+    border-radius: 8px;
 }
 
 .projects-list .img-card .info h3 {
@@ -1589,10 +1592,6 @@ footer a {
     margin-top: 0; /* Remove gap above skills section */
 }
 
-/* ...existing code... */
-
-/* ...existing code... */
-
 .info-section + .info-section {
     margin-top: 0;
 }
@@ -1788,11 +1787,6 @@ footer a {
     }
 }
 
-/* ...existing code... */
-
-/* ...existing code... */
-
-/* Update dropdown content text colors */
 .dropdown-content {
     /* ...existing code... */
     color: #fff !important;
@@ -1821,3 +1815,120 @@ footer a {
 }
 
 /* ...existing code... */
+
+.tech-stack {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.tech-stack i {
+    color: #fff;
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+
+.tech-stack i:hover {
+    transform: translateY(-3px);
+    color: var(--second-color);
+}
+
+/* ...existing code... */
+
+.project-tech-stack {
+    display: flex;
+    gap: 1.5rem;
+    margin: 1rem 0;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    justify-content: center;
+}
+
+.project-tech-stack i {
+    font-size: 1.5em;
+    color: var(--second-color);
+    transition: transform 0.3s ease;
+}
+
+.project-tech-stack i:hover {
+    transform: translateY(-3px);
+    color: var(--hover-color);
+}
+
+.dark-theme .project-tech-stack {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .project-tech-stack i {
+    color: #fff;
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+.typing-animation {
+    display: flex;
+    gap: 5px;
+    padding: 10px 15px;
+    background: rgba(106, 89, 209, 0.1);
+    border-radius: 15px;
+    margin-bottom: 15px;
+    max-width: 60px;
+}
+
+.typing-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--second-color);
+    border-radius: 50%;
+    animation: typing 1.5s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translateY(-5px);
+        opacity: 1;
+    }
+}
+
+.dark-theme .typing-animation {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .typing-dot {
+    background: #fff;
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+#chatbot-header .fa-comments {  /* Changed from .fa-robot to .fa-comments */
+    font-size: 1.4em;          /* Slightly larger size */
+    margin-right: 10px;
+    color: #fff;
+    animation: pulse 2s infinite;  /* Add subtle animation */
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* ...existing code... */
+

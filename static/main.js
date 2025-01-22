@@ -141,6 +141,20 @@ document.addEventListener("DOMContentLoaded", function() {
         chatbotMessages.scrollTop = chatbotMessages.scrollHeight; // Scroll to the bottom
     }
 
+    // Add typing animation function
+    function showTypingAnimation() {
+        const animation = document.createElement('div');
+        animation.className = 'typing-animation';
+        animation.innerHTML = `
+            <span class="typing-dot"></span>
+            <span class="typing-dot"></span>
+            <span class="typing-dot"></span>
+        `;
+        chatbotMessages.appendChild(animation);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        return animation;
+    }
+
     // Function to handle sending a message
     async function handleSendMessage() {
         const userMessage = chatbotInput.value;
@@ -148,23 +162,34 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Display user message
         displayMessage(userMessage, "user-message");
-
-        // Clear input
         chatbotInput.value = "";
 
-        // Send message to backend
-        const response = await fetch('/chatbot', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ message: userMessage })
-        });
-        const data = await response.json();
-        const botMessage = data.response;
+        // Show typing animation
+        const typingAnimation = showTypingAnimation();
 
-        // Display bot message
-        displayMessage(botMessage, "bot-message");
+        try {
+            // Send message to backend
+            const response = await fetch('/chatbot', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: userMessage })
+            });
+            const data = await response.json();
+            
+            // Remove typing animation
+            typingAnimation.remove();
+            
+            // Display bot message
+            displayMessage(data.response, "bot-message");
+        } catch (error) {
+            // Remove typing animation
+            typingAnimation.remove();
+            
+            // Display error message
+            displayMessage("Sorry, I encountered an error. Please try again.", "bot-message");
+        }
     }
 
     // Event listeners
