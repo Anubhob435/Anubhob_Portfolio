@@ -6,8 +6,16 @@ from flask_session import Session
 from dotenv import load_dotenv
 import time
 from google.api_core import exceptions
+from pymongo import MongoClient
+from datetime import datetime
+from uuid import uuid4
 
 load_dotenv()
+
+client = MongoClient(os.getenv('MONGODB_URI'))
+db = client['chatbot_db']
+chats_collection = db['conversations']
+
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # Set the secret key for session management
@@ -77,12 +85,29 @@ def chatbot():
                 'response': "I'm receiving too many requests right now. Please try again in a minute."
             }), 429
 
-        user_message = INITIAL_CONTEXT
-        user_message = user_message + request.json.get('message')
+        # Get or create session ID
+        if 'chat_session_id' not in session:
+            session['chat_session_id'] = str(uuid4())
+
+        user_message = request.json.get('message')
         
         try:
-            response = chat.send_message(user_message)
+            # Prepend context for the AI
+            full_message = INITIAL_CONTEXT + user_message
+            response = chat.send_message(full_message)
             bot_response = response.text.strip()
+
+            # Store conversation in MongoDB
+            chat_document = {
+                'group_id': request.remote_addr,  # Group by IP
+                'session_id': session['chat_session_id'],
+                'timestamp': datetime.utcnow(),
+                'user_message': user_message,
+                'bot_response': bot_response,
+                'ip_address': request.remote_addr
+            }
+            chats_collection.insert_one(chat_document)
+
         except exceptions.ResourceExhausted:
             return jsonify({
                 'response': "I've reached my quota limit. Please try again later."
@@ -101,5 +126,38 @@ def chatbot():
             'response': "I apologize, but I encountered an error. Please try again."
         }), 500
 
+# Add new route to get chat history
+@app.route('/chat-history', methods=['GET'])
+def get_chat_history():
+    try:
+        if 'chat_session_id' not in session:
+            return jsonify([])
+        
+        # Fetch chat history for current session
+        history = list(chats_collection.find(
+            {'session_id': session['chat_session_id']},
+            {'_id': 0, 'user_message': 1, 'bot_response': 1, 'timestamp': 1}
+        ).sort('timestamp', 1))
+        
+        return jsonify(history)
+    except Exception as e:
+        print(f"Error fetching chat history: {str(e)}")
+        return jsonify([])
+
+# Optional: new route to fetch history by IP
+@app.route('/chat-history-by-ip', methods=['GET'])
+def get_chat_history_by_ip():
+    try:
+        ip_addr = request.remote_addr
+        # Fetch chat history by IP (group_id)
+        history = list(chats_collection.find(
+            {'group_id': ip_addr},
+            {'_id': 0, 'user_message': 1, 'bot_response': 1, 'timestamp': 1}
+        ).sort('timestamp', 1))
+        return jsonify(history)
+    except Exception as e:
+        print(f"Error fetching chat history: {str(e)}")
+        return jsonify([])
+
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=False, use_reloader=False, host='0.0.0.0', port=5000)
