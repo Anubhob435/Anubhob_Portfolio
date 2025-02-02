@@ -281,7 +281,36 @@
                         <div class="img-card">
                             <div class="overlay"></div>
                             <div class="info">
-                                <h3>Project 2</h3>
+                                <h3>Project 2: Code Vault</h3>
+                                <span>Code Vault</span>
+                                <div class="tech-stack">
+                                    <i class="fab fa-html5" title="HTML5"></i>
+                                    <i class="fab fa-css3-alt" title="CSS3"></i>
+                                    <i class="fab fa-js" title="JavaScript"></i>
+                                </div>
+                            </div>
+                            <img src="{{ url_for('static', filename='images/codevault.png') }}" alt="Calculator">
+                        </div>
+                        <div class="project-model flex-center">
+                            <div class="project-model-body">
+                                <i class="fas fa-times project-close-btn"></i>
+                                <h3>Project #2: Code Vault</h3>
+                                <img src="{{ url_for('static', filename='images/codevault2.png') }}" alt="Calculator">
+                                <div class="project-tech-stack">
+                                    <i class="fab fa-html5" title="HTML5"></i>
+                                    <i class="fab fa-css3-alt" title="CSS3"></i>
+                                    <i class="fab fa-js" title="JavaScript"></i>
+                                </div>
+                                <p>A premium software marketplace to buy and exchange codes. Built using Python Django, MongoDB, MySQL, and HTML/CSS/JS.</p>
+                                <a href="https://myridev2-gpdvakh0gebfcjb3.centralindia-01.azurewebsites.net/" class="btn" target="_blank">Visit Project<i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img-card-container">
+                        <div class="img-card">
+                            <div class="overlay"></div>
+                            <div class="info">
+                                <h3>Project 3</h3>
                                 <span>AI Stock Analysis</span>
                                 <div class="tech-stack">
                                     <i class="fab fa-python" title="Python"></i>
@@ -305,36 +334,6 @@
                                 </div>
                                 <p>A sophisticated stock analysis tool powered by artificial intelligence. This project combines machine learning algorithms with financial data to provide predictive analytics, trend analysis, and automated trading signals. Features include real-time market data processing, pattern recognition, and predictive modeling for informed investment decisions.</p>
                                 <a href="https://stocks-ai-one.streamlit.app/" class="btn" target="_blank">Visit Project<i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="img-card-container">
-                        <div class="img-card">
-                            <div class="overlay"></div>
-                            <div class="info">
-                                <h3>Project 3</h3>
-                                <span>Calculator suit</span>
-                                <div class="tech-stack">
-                                    <i class="fab fa-html5" title="HTML5"></i>
-                                    <i class="fab fa-css3-alt" title="CSS3"></i>
-                                    <i class="fab fa-js" title="JavaScript"></i>
-                                </div>
-                            </div>
-                            <img src="{{ url_for('static', filename='images/calculator.png') }}" alt="Calculator">
-                        </div>
-                        <div class="project-model flex-center">
-                            <div class="project-model-body">
-                                <i class="fas fa-times project-close-btn"></i>
-                                <h3>Calculator</h3>
-                                <img src="{{ url_for('static', filename='images/calcc.png') }}" alt="Calculator">
-                                <div class="project-tech-stack">
-                                    <i class="fab fa-html5" title="HTML5"></i>
-                                    <i class="fab fa-css3-alt" title="CSS3"></i>
-                                    <i class="fab fa-js" title="JavaScript"></i>
-                                </div>
-                                <p>Introducing my calculator, developed with HTML, CSS, and JavaScript during my web development internship at Oasis Infobytes. This project represents a pivotal task where I honed my skills in front-end development. The
-                                    calculator exemplifies my proficiency in designing responsive and user-centric interfaces.</p>
-                                <a href="https://myridev2-gpdvakh0gebfcjb3.centralindia-01.azurewebsites.net/" class="btn" target="_blank">Visit Project<i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -483,33 +482,33 @@
 
     <!---=========Footer==========-->
     <footer>
-        <div class="footer-container"></div>
-            <div class="about group"></div>
-                <a href="https://github.com/Anubhob435" target="_blank"></a>
-                    <img src="{{ url_for('static', filename='images/logo-light.png') }}" alt="" class="footer-logo">
+        <div class="footer-container">
+            <div class="github-section">
+                <a href="https://github.com/Anubhob435" target="_blank">
+                    <img src="{{ url_for('static', filename='images/logo-light.png') }}" alt="GitHub" class="github-logo">
                 </a>
-                <p>come, Lets Debug Together</p>
-                <a href="#about">About Me</a>
             </div>
-            <div class="hr"></div>
-            <div class="info group"></div>
-                <h3>More</h3>
-                <ul>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Join Me</a></li>
-                </ul>
-            </div>
-            <div class="hr"></div>
-            <div class="follow group">
-                <h3>Follow</h3>
-                <ul>
-                    <li><a href="https://www.facebook.com/anubhob.dey.5/"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="https://www.instagram.com/anubhob_dey/"><i class="fab fa-instagram"></i></a></li>
-                    <li><a href="https://www.linkedin.com/in/anubhob-dey-05702714b/"><i class="fab fa-linkedin"></i></a></li>
-                </ul>
-            </div>
-
+            <div class="footer-links">
+                <div class="about group">
+                    <a href="https://github.com/Anubhob435" target="_blank">
+                        <img src="{{ url_for('static', filename='images/logo-light.png') }}" alt="" class="footer-logo">
+                    </a>
+                    <p>come, Lets Debug Together</p>
+                    <a href="#about">About Me</a>
+                </div>
+                <div class="hr"></div>
+                <div class="info group">
+                    <h3>More</h3>
+                    <ul>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Join Me</a></li>
+                    </ul>
+                </div>
+                <div class="hr"></div>
+                <div class="follow group">
+                    <h3>Follow</h3>
+                    <ul>
         </div>
         <div class="footer-copyright group">
             <p>© 2024 by Anubhob. All rights resrved.</p>
